@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Api request
+// MARK: - Api request's
 
 class NetworkManager {
     
