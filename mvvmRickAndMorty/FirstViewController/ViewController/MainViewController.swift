@@ -46,7 +46,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
         store?.send(.onAppear)
+        
     }
     
     deinit {
@@ -116,7 +118,8 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        store?.send(.onNextPage(indexPath.row))
+      
+        self.store?.send(.onNextPage(indexPath.row))
     }
 }
 
@@ -124,6 +127,7 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         store?.send(.onDetailScreen(indexPath.item))
     }
 }
