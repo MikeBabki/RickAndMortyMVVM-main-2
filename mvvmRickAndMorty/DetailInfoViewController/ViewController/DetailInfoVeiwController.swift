@@ -128,6 +128,7 @@ class DetailInfoVeiwController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        store?.send(.onAppear)
     }
     
     // MARK: - Private methods
@@ -138,7 +139,6 @@ class DetailInfoVeiwController: UIViewController {
             .sink { [weak self] state in
                 self?.render(state: state)
             }.store(in: &cancellables)
-        store.send(.onAppear)
     }
     
     private func render(state: SecondVCFeature.State) {
